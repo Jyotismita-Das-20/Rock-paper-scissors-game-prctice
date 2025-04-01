@@ -9,11 +9,41 @@
 
   <p>Click one of the following to play the game</p>
 
-  <button class="choice-button" onclick="document.getElementById('result').innerHTML='You chose 👊Rock'">👊Rock</button>
+  <button class="choice-button" onclick="let computerChoice=Math.floor(Math.random()*3+1);
+  let computerChoiceText;
+  if(computerChoiceText===1){
+    computerChoiceText=`👊Rock`;
+  }else if(computerChoice==2){
+    computerChoiceText=`✋Paper`;
+  }else{
+    computerChoiceText=`✌️Scissors`;
+  }
+  document.querySelector('#result').innerHTML=`You chose 👊Rock. <br>
+  Computer chose ${computerChoiceText}.`;">👊Rock</button>
 
-  <button class="choice-button" onclick="document.getElementById('result').innerHTML='You chose ✋Paper'">✋Paper</button>
+  <button class="choice-button" onclick="computerChoice=Math.floor(Math.random()*3+1);
+  computerChoiceText;
+  if(computerChoiceText===1){
+    computerChoiceText=`👊Rock`;
+  }else if(computerChoice==2){
+    computerChoiceText=`✋Paper`;
+  }else{
+    computerChoiceText=`✌️Scissors`;
+  }
+  document.querySelector('#result').innerHTML=`You chose ✋Paper. <br>
+  Computer chose ${computerChoiceText}.`;">✋Paper</button>
 
-  <button class="choice-button" onclick="document.getElementById('result').innerHTML='You chose ✌️Scissors'">✌️Scissors</button>
+  <button class="choice-button" onclick="computerChoice=Math.floor(Math.random()*3+1);
+  computerChoiceText;
+  if(computerChoiceText===1){
+    computerChoiceText=`👊Rock`;
+  }else if(computerChoice==2){
+    computerChoiceText=`✋Paper`;
+  }else{
+    computerChoiceText=`✌️Scissors`;
+  }
+  document.querySelector('#result').innerHTML=`You chose ✌️Scissors. <br>
+  Computer chose ${computerChoiceText}.`;">✌️Scissors</button>
 
   <h4 id="result"></h4>
 </body>
