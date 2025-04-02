@@ -1,9 +1,10 @@
-let computerChoice, computerChoiceText;
-
 function assignRandomChoice(){
-  computerChoice=Math.floor(Math.random()*3+1);
+  let computerChoice=Math.floor(Math.random()*3+1);
+  return computerChoice;
 }
-function computeComputerChoice(){
+function getComputerChoice(){
+  let computerChoiceText;
+  let computerChoice=assignRandomChoice();
   if(computerChoiceText===1){
     computerChoiceText=`👊Rock`;
   }else if(computerChoice===2){
@@ -11,11 +12,12 @@ function computeComputerChoice(){
   }else{
     computerChoiceText=`✌️Scissors`;
   }
+  return computerChoiceText;
 }
 
 function rockClicked(){
-  assignRandomChoice();
-  computeComputerChoice();
+  let computerChoiceText=getComputerChoice();
+  // getComputerChoice();
   if(computerChoiceText==`👊Rock`){
     result='Tie';
   }else if(computerChoiceText==`✋Paper`){
@@ -30,8 +32,8 @@ function rockClicked(){
 }
 
 function paperClicked(){
-  assignRandomChoice();
-  computeComputerChoice();
+  let computerChoiceText=getComputerChoice();
+  // getComputerChoice();
 
   if(computerChoiceText==`👊Rock`){
     result='You won';
@@ -47,8 +49,8 @@ function paperClicked(){
 }
 
 function scissorsClicked(){
-  assignRandomChoice();
-  computeComputerChoice();
+  let computerChoiceText=getComputerChoice();
+  // getComputerChoice();
 
   if(computerChoiceText==`👊Rock`){
     result='I won';
