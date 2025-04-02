@@ -9,42 +9,75 @@
 
   <p>Click one of the following to play the game</p>
 
-  <button class="choice-button" onclick="let computerChoice=Math.floor(Math.random()*3+1);
-  let computerChoiceText;
+  <button class="choice-button" onclick="computerChoice=Math.floor(Math.random()*3+1);
+  computerChoiceText;
   if(computerChoiceText===1){
     computerChoiceText=`👊Rock`;
-  }else if(computerChoice==2){
+  }else if(computerChoice===2){
     computerChoiceText=`✋Paper`;
   }else{
     computerChoiceText=`✌️Scissors`;
   }
+
+  if(computerChoiceText==`👊Rock`){
+    result='Tie';
+  }else if(computerChoiceText==`✋Paper`){
+    result='I won';
+    }else{
+      result='You won';
+    }
+
   document.querySelector('#result').innerHTML=`You chose 👊Rock. <br>
-  Computer chose ${computerChoiceText}.`;">👊Rock</button>
+  Computer chose ${computerChoiceText}. <br>
+  And the result is: ${result}`;">👊Rock</button>
 
   <button class="choice-button" onclick="computerChoice=Math.floor(Math.random()*3+1);
   computerChoiceText;
   if(computerChoiceText===1){
     computerChoiceText=`👊Rock`;
-  }else if(computerChoice==2){
+  }else if(computerChoice===2){
     computerChoiceText=`✋Paper`;
   }else{
     computerChoiceText=`✌️Scissors`;
   }
+
+  if(computerChoiceText==`👊Rock`){
+    result='You won';
+  }else if(computerChoiceText==`✋Paper`){
+    result='Tie';
+    }else{
+      result='I won';
+    }
+
   document.querySelector('#result').innerHTML=`You chose ✋Paper. <br>
-  Computer chose ${computerChoiceText}.`;">✋Paper</button>
+  Computer chose ${computerChoiceText}. <br>
+  And the result is: ${result}`;">✋Paper</button>
 
   <button class="choice-button" onclick="computerChoice=Math.floor(Math.random()*3+1);
   computerChoiceText;
   if(computerChoiceText===1){
     computerChoiceText=`👊Rock`;
-  }else if(computerChoice==2){
+  }else if(computerChoice===2){
     computerChoiceText=`✋Paper`;
   }else{
     computerChoiceText=`✌️Scissors`;
   }
+
+  if(computerChoiceText==`👊Rock`){
+    result='I won';
+  }else if(computerChoiceText==`✋Paper`){
+    result='You won';
+    }else{
+      result='Tie';
+    }
+
   document.querySelector('#result').innerHTML=`You chose ✌️Scissors. <br>
-  Computer chose ${computerChoiceText}.`;">✌️Scissors</button>
+  Computer chose ${computerChoiceText}.<br>
+  And the result is: ${result}`;">✌️Scissors</button>
 
   <h4 id="result"></h4>
+  <script>
+    let computerChoice, computerChoiceText;
+  </script>
 </body>
 </html>
