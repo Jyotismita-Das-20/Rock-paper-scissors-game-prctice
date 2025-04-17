@@ -1,3 +1,9 @@
+let score={
+  computer:0,
+  user:0,
+  tie: 0,
+};
+
 function assignRandomChoice(){
   let computerChoice=Math.floor(Math.random()*3+1);
   return computerChoice;
@@ -16,19 +22,25 @@ function getComputerChoice(){
 }
 
 function updateResult(userChoice,computerChoice,result){
+  document.querySelector('#score').innerHTML=`
+  Score: Computer Won: ${score.computer}, User Won: ${score.user}, Tie: ${score.tie}`;
+
   document.querySelector('#result').innerHTML=`You chose ${userChoice}. <br>
   Computer chose ${computerChoice}. <br>
   And the result is: ${result}`;
 }
 
-function getResult(userChoice,computerChoice){
+function computerResult(userChoice,computerChoice){
   let result;
   if(userChoice===computerChoice){
     result='Tie';
+    score.tie++;
   }else if((computerChoice==='👊Rock' && userChoice=== '✌️Scissors') || (computerChoice==='✌️Scissors' && userChoice=== '✋Paper') || (computerChoice==='✋Paper' && userChoice=== '👊Rock')){
     result='Computer won';
+    score.computer++;
     }else{
       result='You won';
+      score.user++;
     }
     return result;
 }
@@ -36,20 +48,20 @@ function getResult(userChoice,computerChoice){
 function rockClicked(){
   const userChoice='👊Rock';
   let computerChoice=getComputerChoice();
-    let result=getResult(userChoice,computerChoice);
+    let result=computerResult(userChoice,computerChoice);
     updateResult(userChoice,computerChoice,result);
 }
 
 function paperClicked(){
   const userChoice='✋Paper';
   let computerChoice=getComputerChoice();
-    let result=getResult(userChoice,computerChoice);
+    let result=computerResult(userChoice,computerChoice);
     updateResult(userChoice,computerChoice,result);
 }
 
 function scissorsClicked(){
   const userChoice='✌️Scissors';
   let computerChoice=getComputerChoice();
-    let result=getResult(userChoice,computerChoice);
+    let result=computerResult(userChoice,computerChoice);
     updateResult(userChoice,computerChoice,result);
 }
