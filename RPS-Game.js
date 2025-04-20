@@ -3,10 +3,34 @@ let score={
   user:0,
   tie: 0,
   updateScore: function(){
+    this.saveScore();
     document.querySelector('#score').innerHTML=`
   Score: Computer Won: ${this.computer}, User Won: ${this.user}, Tie: ${this.tie}`;
+  },
+  saveScore:function(){
+    let scoreStr=JSON.stringify(this);
+    localStorage.setItem('score',scoreStr);
+    console.log(`Score saved: ${scoreStr}`);
   }
 };
+
+function resetScore(){
+  score.computer=0;
+  score.user=0;
+  score.tie=0;
+  score.updateScore();
+}
+
+function initialize(){
+  let scoreStr=localStorage.getItem('score');
+  if(scoreStr){
+    let scoreVal=JSON.parse(scoreStr);
+    score.computer=scoreVal.computer;
+    score.user=scoreVal.user;
+    score.tie=scoreVal.tie;
+    score.updateScore();
+  }
+}
 
 function assignRandomChoice(){
   let computerChoice=Math.floor(Math.random()*3+1);
@@ -67,3 +91,5 @@ function scissorsClicked(){
     let result=computerResult(userChoice,computerChoice);
     updateResult(userChoice,computerChoice,result);
 }
+
+initialize();
